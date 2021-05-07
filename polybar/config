@@ -1,0 +1,145 @@
+[colors]
+fg = ${xrdb:color7}
+modfg = ${xrdb:color1}
+bg = ${xrdb:color0}
+
+white = #8a7f8f
+gray = #677d71
+black = #cc172D28
+green = #3B7366
+greenie = #529081
+blue = #95aec7
+yellow = #7722f45d
+green1 = #aec795
+greenblue = #44ad7b
+blueboi = #1dd7b0
+bluey = #3094b4
+blue3 = #2478da
+
+[bar/mybar]
+; where the modules go
+modules-left = i3
+modules-center = time
+modules-right = cpu separator ram separator disk separator timestamp separator power separator audio
+wm-restack = i3
+
+; location of the bar itself
+bottom = true
+
+; format of the bar
+background = ${colors.black}
+foreground = ${colors.gray}
+font-0 = FontAwesome:pixelsize=10;0
+font-1 = PragmataPro Nerd Font:pixelsize=10;0
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=10;1"
+
+
+; spaces between and at the sides of the bar
+offset-x = 0
+offset-y = 0
+line-size = 2
+
+[module/time]
+type = internal/date
+interval = 0.5
+date = %Y/%m/%d
+time = %H:%M:%S
+label = %time% - %date%
+label-padding = 1
+
+[module/timestamp]
+type = internal/date
+interval = 0.5
+time = %s
+label = " %time% "
+label-padding = 1
+label-underline = ${colors.blue}
+
+[module/i3]
+type = internal/i3
+
+label-mode = " %mode%"
+pin-workspaces = false
+strip-wsnumbers = false
+index-sort = true
+enable-scroll = false
+enable-click = true
+
+format = <label-state> <label-mode>
+format-padding-right = 2
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.gray}
+label-unfocused-background = ${colors.black}
+label-unfocused-padding = 1
+
+label-focused = %icon%
+label-focused-foreground = ${colors.gray}
+label-focused-background = ${colors.green}
+label-focused-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.gray}
+label-urgent-background = ${colors.greenie}
+label-urgent-padding = 1
+
+; label-separator = " "
+
+label-focused-underline = ${colors.yellow}
+label-unfocused-underline = ${colors.yellow}
+label-urgent-underline = ${colors.yellow}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
+
+[module/separator]
+type = custom/text
+content = " "
+content-padding= 0.5
+
+[module/audio]
+type = custom/text
+content = "  "
+
+content-underline = ${colors.greenie}
+click-left = ~/scripts/c-stuff/audio_control
+click-right = killall audio_control
+
+[module/power]
+type = custom/text
+content = "  "
+
+content-underline = ${colors.greenblue}
+click-left = ~/scripts/c-stuff/power-toggle
+click-right = killall power-toggle
+
+[module/disk]
+type = internal/fs
+mount-0 = /
+interval = 10
+label-mounted = " %free% "
+label-mounted-underline = ${colors.blueboi}
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label>
+label = " CPU: %percentage%% "
+label-underline = ${colors.bluey}
+
+[module/ram]
+type = internal/memory
+interval = 0.5
+format = <label>
+label = " %gb_free% "
+label-underline = ${colors.blue3}
