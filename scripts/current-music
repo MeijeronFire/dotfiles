@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# cava
+
+current=$(playerctl metadata --format "     {{ title }} - {{ artist }}   ")
+#prev=$(cat ~/scripts/np)
+
+echo "$current"
+#echo "$prev"
+
+#if [ "$current" != "$prev" ]
+#then
+#  notify-send "Now Playing" "$current"
+#fi
+
+#cat ~/scripts/np
+#echo "$current" > ~/scripts/np
