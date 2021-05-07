@@ -20,7 +20,7 @@ blue3 = #2478da
 ; where the modules go
 modules-left = i3
 modules-center = time
-modules-right = cpu separator ram separator disk separator timestamp separator power separator audio
+modules-right = cpu separator ram separator disk separator timestamp separator audio
 wm-restack = i3
 
 ; location of the bar itself
@@ -114,14 +114,6 @@ content = "  "
 content-underline = ${colors.greenie}
 click-left = ~/scripts/c-stuff/audio_control
 click-right = killall audio_control
-
-[module/power]
-type = custom/text
-content = "  "
-
-content-underline = ${colors.greenblue}
-click-left = ~/scripts/c-stuff/power-toggle
-click-right = killall power-toggle
 
 [module/disk]
 type = internal/fs
